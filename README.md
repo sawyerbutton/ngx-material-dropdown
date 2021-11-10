@@ -1,27 +1,66 @@
-# NgxMaterialDropdown
+# Angular Dropdown Component
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.1.
+Material-like dropdown component for Angular Version 13.
 
-## Development server
+Upgraded from ng2-material-dropdown.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Install
 
-## Code scaffolding
+    npm install ngx-material-dropdown --save
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
 
-## Build
+Once installed, import the directives and use it in your container component:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```html
+<ngx-dropdown>
+    <ngx-dropdown-button>
+        Open Menu
+    </ngx-dropdown-button>
+    <ngx-dropdown-menu>
+        <ngx-dropdown-menu-item *ngFor="let page of pages">
+            {{ page }}
+        </ngx-dropdown-menu-item>
 
-## Running unit tests
+        <div class='ng2-menu-divider'></div>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+        <ngx-dropdown-menu-item>
+            With Divider
+        </ngx-dropdown-menu-item>
+    </ngx-dropdown-menu>
+</ngx-dropdown>
+```
 
-## Running end-to-end tests
+```javascript
+// import module
+import { NgxMaterialDropdownModule } from 'ngx-material-dropdown';
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+@NgModule({
+    imports: [ NgxMaterialDropdownModule ]
+    // ..
+})
+export class MyModule {}
+```
 
-## Further help
+## API
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+`ngx-dropdown`
+- **`dynamicUpdate`** - **`[?boolean]`** : option to disable the dynamic update of the position on scroll events (defaults to `true`)
+- **`onItemSelected()`** - **`[(onItemSelected($event)]`** : event that emits the currently selected/hovered item
+- **`onItemClicked()`** - **`[(onItemClicked($event)]`** : event that emits the item clicked on
+- **`onShow()`** - **`[(onItemClicked($event)]`** : event that emits when the dropdown gets shown
+- **`onHide()`** - **`[(onItemClicked($event)]`** : event that emits when the dropdown gets hidden
+
+`ngx-dropdown-menu`
+- **`focusFirstElement`** - **`[?boolean]`** : by default the first element is immediately focused. You can disable by setting this option to false
+- **`width`** - **`[?number]`**: this determines the width of the menu. Possible values are 2, 4 and 6. By default, this is set to 4
+- **`offset`** - **`[?string]`**: offset to adjust the position of the dropdown with absolute values
+- **`appendToBody`** - **`[?boolean]`** : by default the dropdown is appended to the body, but you can disable this by setting it to `false`
+
+
+`ngx-dropdown-button`
+- **`showCaret`** - **`[?boolean]`** : if present, a caret will be appended to the button's text
+
+`ngx-dropdown-menu-item`
+- **`preventClose`** - `[?boolean]` : if present, this attribute prevents the menu to hide when the menu item is clicked
+- **`value` - `[?any]`** : any value that you may want to attach to a menu item. Useful for using this component with other components.
