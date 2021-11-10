@@ -1,0 +1,173 @@
+<main>
+    <h1>Material Dropdown</h1>
+  
+    <div>
+      <h2>
+        Simple dropdown
+      </h2>
+  
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu>
+          <ngx-dropdown-menu-item *ngFor="let page of pages">
+            <i class="material-icons" ngx-dropdown-menu-item-icon>{{
+              page.toLowerCase()
+            }}</i>
+  
+            {{ page }}
+          </ngx-dropdown-menu-item>
+          <div class="ngx-menu-divider"></div>
+          <ngx-dropdown-menu-item>
+            With Divider
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  
+    <div>
+      <h2>
+        Dropdown with prevent close items
+      </h2>
+  
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu>
+          <ngx-dropdown-menu-item [preventClose]="true">
+            I am not going to close the menu
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item [preventClose]="true">
+            me neither
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            But I am!
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  
+    <div>
+      <h2>Dropdown with width = 2</h2>
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu [width]="2" [focusFirstElement]="false">
+          <ngx-dropdown-menu-item>
+            First item
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Second item
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  
+    <div>
+      <h2>Dropdown with icon</h2>
+      <div>
+        <ngx-dropdown [dynamicUpdate]="false">
+          <ngx-dropdown-button
+            class="ngx-dropdown-button--icon"
+            [showCaret]="false"
+          >
+            <i class="material-icons" ngx-dropdown-menu-item-icon>menu_vert</i>
+          </ngx-dropdown-button>
+          <ngx-dropdown-menu [width]="4">
+            <ngx-dropdown-menu-item>
+              Home
+            </ngx-dropdown-menu-item>
+            <ngx-dropdown-menu-item>
+              About
+            </ngx-dropdown-menu-item>
+            <ngx-dropdown-menu-item>
+              Logout
+            </ngx-dropdown-menu-item>
+          </ngx-dropdown-menu>
+        </ngx-dropdown>
+      </div>
+    </div>
+  
+    <div>
+      <h2>Dropdown with width = 6</h2>
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu [width]="6" [focusFirstElement]="false">
+          <ngx-dropdown-menu-item>
+            First item
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Second item
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  
+    <div>
+      <h2>Dropdown with offset 100 100</h2>
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu [offset]="'100 100'">
+          <ngx-dropdown-menu-item>
+            First item
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Second item
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  
+    <div class="fixed-section">
+      <h2>Dropdown in a fixed container</h2>
+      <ngx-dropdown>
+        <ngx-dropdown-button>
+          Open Menu
+        </ngx-dropdown-button>
+        <ngx-dropdown-menu [appendToBody]="false" [width]="4">
+          <ngx-dropdown-menu-item>
+            Home
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>om Help </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            About
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Logout
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Home
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Help
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            About
+          </ngx-dropdown-menu-item>
+  
+          <ngx-dropdown-menu-item>
+            Logout
+          </ngx-dropdown-menu-item>
+        </ngx-dropdown-menu>
+      </ngx-dropdown>
+    </div>
+  </main>
+  

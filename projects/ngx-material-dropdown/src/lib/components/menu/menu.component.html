@@ -1,0 +1,12 @@
+<!-- MENU -->
+<div class="ngx-dropdown-menu ngx-dropdown-menu---width--{{ width }}"
+    [class.ngx-dropdown-menu--inside-element]="!appendToBody"
+    [class.ngx-dropdown-menu--open]="dropdownState.menuState.isVisible" [style.z-index]="zIndex"
+    [@fade]="dropdownState.menuState.toString()">
+    <div class="ngx-dropdown-menu__options-container" [@opacity]="dropdownState.menuState.toString()">
+        <ng-content></ng-content>
+    </div>
+</div>
+
+<!-- BACKDROP -->
+<div class="ngx-dropdown-backdrop" *ngIf="dropdownState.menuState.isVisible" (click)="hide()"></div>

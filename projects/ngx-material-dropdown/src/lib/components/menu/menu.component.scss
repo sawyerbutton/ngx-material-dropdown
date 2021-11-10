@@ -1,0 +1,54 @@
+:host {
+    display: block;
+}
+
+.ngx-dropdown-menu {
+    overflow-y: auto;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+
+    position: absolute;
+    padding: 0.5em 0;
+    background: #fff;
+    border-radius: 1px;
+
+    max-height: 400px;
+    width: 260px;
+    min-height: 0;
+
+    display: block;
+}
+
+.ngx-dropdown-menu.ngx-dropdown-menu--inside-element {
+    position: fixed;
+}
+
+.ngx-dropdown-menu.ngx-dropdown-menu--width--2 {
+    width: 200px;
+}
+
+.ngx-dropdown-menu.ngx-dropdown-menu--width--4 {
+    width: 260px;
+}
+
+.ngx-dropdown-menu.ngx-dropdown-menu--width--6 {
+    width: 320px;
+}
+
+.ngx-dropdown-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+:host ::ng-deep .ngx-menu-divider {
+    height: 1px;
+    min-height: 1px;
+    max-height: 1px;
+    width: 100%;
+    display: block;
+    background: #f9f9f9;
+}

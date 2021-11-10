@@ -11,6 +11,12 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
+    "paths": {
+      "ngx-material-dropdown": [
+        "dist/ngx-material-dropdown/ngx-material-dropdown",
+        "dist/ngx-material-dropdown"
+      ]
+    },
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,

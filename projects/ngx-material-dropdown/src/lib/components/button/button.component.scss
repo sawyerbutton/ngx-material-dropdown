@@ -1,0 +1,55 @@
+.ngx-dropdown-button {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial;
+  background: #fff;
+  padding: 0.45rem 0.25rem;
+  font-size: 14px;
+  letter-spacing: 0.08rem;
+  color: #444;
+  outline: 0;
+  cursor: pointer;
+  font-weight: 400;
+  border: none;
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  min-width: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-width: 150px;
+}
+
+.ngx-dropdown-button:hover {
+  color: #222;
+}
+
+.ngx-dropdown-button:active,
+.ngx-dropdown-button:focus {
+  color: #222;
+  border-bottom: 2px solid #2196f3;
+}
+
+.ngx-dropdown-button__label {
+  flex: 1 1 95%;
+}
+
+.ngx-dropdown-button__caret {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  flex: 1 1 6%;
+}
+
+:host-context(.ngx-dropdown-button--icon) .ngx-dropdown-button {
+  border: none;
+  min-width: 40px;
+  width: 40px;
+  border-radius: 100%;
+  transition: all 0.2s;
+  text-align: center;
+  height: 40px;
+  padding: 0.5em;
+}
+
+:host-context(.ngx-dropdown-button--icon) .ngx-dropdown-button:active {
+  background: rgba(0, 0, 0, 0.2);
+}
