@@ -1,6 +1,7 @@
-import { EventEmitter } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import { MenuItemComponent } from '../components/menu-item/menu-item.component';
 
+@Injectable()
 export class DropdownState {
   public onItemSelected: EventEmitter<MenuItemComponent> =
     new EventEmitter<MenuItemComponent>();
@@ -8,8 +9,6 @@ export class DropdownState {
     new EventEmitter<MenuItemComponent>();
   public onItemDestroyed: EventEmitter<MenuItemComponent> =
     new EventEmitter<MenuItemComponent>();
-
-  constructor() {}
 
   private _selectedItem: MenuItemComponent | undefined;
 
