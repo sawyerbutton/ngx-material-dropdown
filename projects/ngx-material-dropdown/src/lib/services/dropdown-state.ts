@@ -34,7 +34,6 @@ export class DropdownState {
     }
 
     item.focus();
-
     this.onItemSelected.emit(item);
   }
 

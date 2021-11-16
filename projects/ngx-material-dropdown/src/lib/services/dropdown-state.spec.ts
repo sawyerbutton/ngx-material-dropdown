@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { DropdownState } from './dropdown-state';
-// import {Component, NO_ERRORS_SCHEMA} from "@angular/core";
 import {MenuItemComponent} from "../components/menu-item/menu-item.component";
 
 describe('DropdownState', () => {
@@ -57,21 +56,18 @@ describe('DropdownState', () => {
     expect(dropdown.onItemSelected.emit).toHaveBeenCalledTimes(0);
   })
 
-  // it('should have MenuItem focus function called after select function called with params [menuItem, true]', async () => {
-  //   await dropdown.select(comp, true)
-  //   expect(spyOn(comp, 'focus')).toHaveBeenCalledTimes(1);
-  // })
+  it('should have dropdown selectedItem return comp after call select function with params [menuItem, false]', () => {
+    dropdown.select(comp, true);
+    expect(dropdown.selectedItem).toBe(comp);
+  })
 
-  // it('should have MenuItem focus function called after select function called with params [menuItem, false]', () => {
-  //   spyOn(dropdown, 'select').withArgs(comp, false);
-  //   expect(comp.focus).toHaveBeenCalled();
-  // })
+  it('should have dropdown selectedItem return undefined after call select function with params [undefined, false]', () => {
+    dropdown.select(undefined, true);
+    expect(dropdown.selectedItem).toBeUndefined();
+  })
+
 });
 
-// @Component({
-//   selector: "ngx-dropdown-menu-item",
-//   template: "",
-// })
 class MenuItemStubComponent{
   public focus() {}
 }
