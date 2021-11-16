@@ -14,11 +14,12 @@ describe('MenuItemComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MenuItemComponent ],
       providers: [
-        // {provide: DropdownStateService, useValue: spy }
+        {provide: DropdownStateService, useValue: DropDownStateServiceSpy }
       ]
-    }).overrideComponent(
-      MenuItemComponent,
-      {set: {providers: [{provide: DropdownStateService, useClass: DropDownStateServiceSpy}]}})
+    })
+    // .overrideComponent(
+    //   MenuItemComponent,
+    //   {set: {providers: [{provide: DropdownStateService, useClass: DropDownStateServiceSpy}]}})
     .compileComponents();
   });
 
