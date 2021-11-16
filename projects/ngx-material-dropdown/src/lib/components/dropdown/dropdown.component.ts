@@ -28,7 +28,6 @@ export class DropdownComponent implements OnInit {
   constructor(private state: DropdownStateService) {}
 
   ngOnInit() {
-    console.log(this);
     this.state.dropdownState.onItemClicked.subscribe((item) => {
       this.onItemClicked.emit(item);
 

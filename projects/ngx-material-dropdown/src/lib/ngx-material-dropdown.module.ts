@@ -5,6 +5,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DropdownState } from './services/dropdown-state';
 
 
 @NgModule({
@@ -17,6 +18,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     CommonModule,
     BrowserAnimationsModule
+  ],
+  providers: [
+    DropdownState
   ],
   exports: [
     ButtonComponent,

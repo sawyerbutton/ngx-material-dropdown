@@ -23,7 +23,7 @@ export class ButtonComponent{
    * @name getPosition
    * @desc returns position of the button
    */
-  public getPosition(): ClientRect {
+  public getPosition(): DOMRect {
     return this.element.nativeElement.getBoundingClientRect();
   }
 }

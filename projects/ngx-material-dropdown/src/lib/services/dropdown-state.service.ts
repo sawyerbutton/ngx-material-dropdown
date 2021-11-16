@@ -3,7 +3,6 @@ import { DropdownState } from './dropdown-state';
 
 @Injectable()
 export class DropdownStateService {
-  constructor() {}
 
   public menuState = {
     isVisible: false,
@@ -12,5 +11,11 @@ export class DropdownStateService {
     },
   };
 
-  public dropdownState = new DropdownState();
+  public dropdownState: DropdownState;
+
+  constructor(
+    private ddState: DropdownState
+  ) {
+    this.dropdownState = this.ddState;
+  }
 }

@@ -29,7 +29,8 @@
           "options": {
             "main": "projects/ngx-material-dropdown/src/test.ts",
             "tsConfig": "projects/ngx-material-dropdown/tsconfig.spec.json",
-            "karmaConfig": "projects/ngx-material-dropdown/karma.conf.js"
+            "karmaConfig": "projects/ngx-material-dropdown/karma.conf.js",
+            "codeCoverage": true
           }
         }
       }
