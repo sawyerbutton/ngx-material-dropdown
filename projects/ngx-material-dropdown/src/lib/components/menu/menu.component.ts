@@ -150,7 +150,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     // reset selected item state
     this.dropdownState.dropdownState.unselect();
 
-    // call function to unlisten
+    // call function to un-listen
     this.listeners.arrowHandler && this.listeners.arrowHandler();
     this.listeners.handleKeypress && this.listeners.handleKeypress();
   }
