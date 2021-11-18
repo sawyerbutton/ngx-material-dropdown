@@ -1,11 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MenuItemComponent } from './menu-item.component';
 import {DropdownStateService} from "../../services/dropdown-state.service";
+import {DropdownState} from "../../services/dropdown-state";
+import {Injectable} from "@angular/core";
 
 describe('MenuItemComponent', () => {
   let component: MenuItemComponent;
   let fixture: ComponentFixture<MenuItemComponent>;
-  let stateService: jasmine.SpyObj<DropdownStateService>
+  let service: DropdownStateService;
+  // let stateService: jasmine.SpyObj<DropdownStateService>
 
   beforeEach(async () => {
 
@@ -14,19 +17,17 @@ describe('MenuItemComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ MenuItemComponent ],
       providers: [
-        {provide: DropdownStateService, useValue: DropDownStateServiceSpy }
+        DropdownStateService,
+        DropdownState
       ]
     })
-    // .overrideComponent(
-    //   MenuItemComponent,
-    //   {set: {providers: [{provide: DropdownStateService, useClass: DropDownStateServiceSpy}]}})
     .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(MenuItemComponent);
     component = fixture.componentInstance;
-    stateService = TestBed.inject(DropdownStateService);
+    service = TestBed.inject(DropdownStateService);
     fixture.detectChanges();
   });
 
@@ -36,12 +37,24 @@ describe('MenuItemComponent', () => {
 
   it('should have public properties defined', () => {
     expect(component.preventClose).toBeDefined();
-    expect(component.value).toBeDefined();
+    expect(component.value).toBeUndefined();
+  })
+
+  it('should emit value on click', () => {
+    spyOn(service.dropdownState.onItemClicked, 'emit');
+    const nativeElement = fixture.nativeElement;
+    const div = nativeElement.querySelector('div.ngx-menu-item');
+    div.dispatchEvent(new Event('click'));
+    fixture.detectChanges();
+    expect(service.dropdownState.onItemClicked.emit).toHaveBeenCalledWith(component);
+  })
+
+  it('should emit value on mouseover', () => {
+    spyOn(service.dropdownState, 'select');
+    const nativeElement = fixture.nativeElement;
+    const div = nativeElement.querySelector('div.ngx-menu-item');
+    div.dispatchEvent(new Event('mouseover'));
+    fixture.detectChanges();
+    expect(service.dropdownState.select).toHaveBeenCalledWith(component, true);
   })
 });
-
-
-class DropDownStateServiceSpy {
-  menuState = jasmine.createSpyObj('menuState', ['isVisible', 'toString']);
-  dropdownState = jasmine.createSpy('dropdownState');
-}
