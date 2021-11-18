@@ -4,7 +4,7 @@ import {BrowserModule} from "@angular/platform-browser";
 import {TestModule} from "./test-helper";
 import {DropdownStateService} from "../../services/dropdown-state.service";
 import {DropdownState} from "../../services/dropdown-state";
-import {Component} from "@angular/core";
+// import {Component} from "@angular/core";
 
 const KEYS = {
   BACKSPACE: 9,
@@ -55,13 +55,13 @@ describe('action', () => {
   //   ACTIONS[KEYS.ESCAPE].call(this, menuComponentStub);
   //   expect(menuComponentStub.hide).toHaveBeenCalled();
   // });
+
+  it('arrowKeysHandler will trigger after function call', () => {
+    let eventSpy = jasmine.createSpyObj('event', ['preventDefault']);
+    eventSpy.keyCode = 40;
+    arrowKeysHandler(eventSpy);
+    expect(eventSpy.preventDefault).toHaveBeenCalled()
+  })
 });
 
 
-@Component({
-  selector: 'basic-menu-component',
-  template: ``,
-})
-class MenuComponentStub {
-  public hide() {}
-}
